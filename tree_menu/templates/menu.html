@@ -1,0 +1,11 @@
+<ul>
+    {% for option in options %}
+        <li>
+            <a href="?{{ url_string }}&{{ menu }}={{ option.title }}">{{ option.title }}</a>
+        </li>
+        {% if option.child_options %}
+            {% include 'menu.html' with options=option.child_options %}
+        {% endif %}
+
+    {% endfor %}
+</ul>
